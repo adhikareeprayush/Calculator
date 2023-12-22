@@ -1,0 +1,164 @@
+
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
+
+/* Clearing Default Styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+html,body{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+body{
+    background-color: #f1f1f1;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Container Styles */
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    height:auto;
+    width: 700px;
+    border: 1px solid #3e3e3e8f;
+    background-color: azure;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.answers{
+    width:100%;
+    height:200px;
+    background-color: #fff;
+}
+
+.screen{
+    width:100%;
+    height:50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    font-size: 30px;
+    font-weight: 500;
+    border-top:1px solid #3e3e3e8f;
+}
+
+.calculator{
+    background-color:#ededed;
+    padding:0px 10px;
+    width: 100%;
+    height: auto;
+    border-top:1px solid #3e3e3e8f;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftMenu{
+    width: 30%;
+}
+
+.centerMenu{
+    width:40%;
+}
+
+.rightMenu{
+    width: 20%;
+}
+
+.rightMenu .row{
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.row{
+    width: 100%;
+    margin-bottom:5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:5px;
+}
+
+.btn{
+    width: 60px;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+
+}
+
+.btnWhite{
+    background:linear-gradient(#fff,#f1f1f1);
+}
+
+.btnWhite:hover{
+    background:linear-gradient(#f1f1f1,#fff);
+}
+
+.btnBlack{
+    background:linear-gradient(#9a9999,#a4a4a499);
+    color:#fff;
+}
+
+.btnBlack:hover{
+    background:linear-gradient(#a4a4a499,#9a9999);
+}
+
+.del{
+    width: 60%;
+    color:black;
+}
+
+.btnEnter{
+    width: 100%;
+}
+
+.menus{
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.menu{
+    border:none;
+    background: transparent;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.btnEnter{
+    background:rgb(48, 90, 218);
+    color:#fff;
+}
