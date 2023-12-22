@@ -28,7 +28,7 @@ body{
     align-items: flex-start;
     flex-direction: column;
     height:auto;
-    width: 700px;
+    width: 40%;
     border: 1px solid #3e3e3e8f;
     background-color: azure;
     position: absolute;
@@ -90,7 +90,7 @@ body{
     width: 100%;
     margin-bottom:5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap:5px;
 }
@@ -98,22 +98,21 @@ body{
 .btn{
     width: 60px;
     height: 40px;
-    border-radius: 2px;
-    border: none;
-    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
 
 }
 
 .btnWhite{
-    background:linear-gradient(#fff,#f1f1f1);
+    box-shadow: inset 0 1px #ffffff40, inset 0 -1px #00000005;
+    background: linear-gradient(#fff,#fafafa);
+    border: 1px solid #d8d8d8 !important;
+    border-radius: 2px;
 }
 
 .btnWhite:hover{
@@ -121,8 +120,10 @@ body{
 }
 
 .btnBlack{
-    background:linear-gradient(#9a9999,#a4a4a499);
-    color:#fff;
+    box-shadow: inset 0 1px #ffffff1a, inset 0 -1px #00000005;
+    background: linear-gradient(rgba(0,0,0,.13),rgba(0,0,0,.16));
+    border: 1px solid #bbb;
+    border-radius: 2px;
 }
 
 .btnBlack:hover{
@@ -162,3 +163,79 @@ body{
     background:rgb(48, 90, 218);
     color:#fff;
 }
+
+.btnEnter:hover{
+    background:rgb(48, 90, 218);
+}
+
+.fraction {
+    display: inline-grid;
+  
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  
+    font-size: 0.8em; 
+    vertical-align: top;
+  }
+  
+.numer{
+    border-bottom: 1px solid;
+}
+
+power{
+    font-size: 0.5em;
+    vertical-align: top;
+}
+
+nthroot{
+    font-size: 0.7rem;
+    vertical-align: top;
+}
+
+.menus .menu{
+    position: relative;
+}
+
+.leftMenu .menus .menu::after
+{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #3187ea;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.leftMenu .menus .menu:hover::after
+{
+    transform: scaleX(1);
+}
+
+.leftMenu .menus .menu.active::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #3187ea;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(1);
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 1024px){
+    .container{
+        width: 100%;
+    }
+    
+}
+
+
