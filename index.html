@@ -3,109 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-9846671ed7c9dd69b10c93f6b04b31fe.css?vsn=d">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>Calculator</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    <title>Calc</title>
 </head>
 <body>
-    <div class="container">
-        <div class="answers"></div>
-        <div class="screen" id="screen"></div>
-        <div class="calculator" >
 
-            <div class="leftMenu">
-                    <div class="row menus">
-                        <div class="btn menu active">main</div>
-                        <div class="btn menu">abs</div>
-                        <div class="btn menu">func</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnWhite">\(a^2\)</div>
-                        <div class="btn btnWhite">\(a^n\)</div>
-                        <div class="btn btnWhite">|a|</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnWhite">$$\sqrt{}$$</div>
-                        <div class="btn btnWhite">$$\sqrt[n]{}$$</div>
-                        <div class="btn btnWhite">$$\pi$$</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnWhite">$$\sin$$</div>
-                        <div class="btn btnWhite">$$\cos$$</div>
-                        <div class="btn btnWhite">$$\tan$$</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnWhite">(</div>
-                        <div class="btn btnWhite">)</div>
-                        <div class="btn btnWhite">,</div>
-                    </div>
+    <div class="calculator" id="calculator">
+        <div class="previous">
+            <div class="prevCalcs">
+                <input type="text" class="prevQuery" id="prevQuery" value="100+1000">
+                <input type="text" class="prevAns" id="prevAns" value="=1100">
             </div>
-
-            <div class="centerMenu">
-                <div class="buttons">
-                    <div class="row menus">
-                        <div class="btn menu">DEG</div>
-                        <div class="btn menu">RAD</div>
-                        <div class="btn menu"><i class="bi bi-arrow-counterclockwise"></i></div>
-                        <div class="btn menu"><i class="bi bi-arrow-clockwise"></i></div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnBlack number">7</div>
-                        <div class="btn btnBlack number">8</div>
-                        <div class="btn btnBlack number">9</div>
-                        <div class="btn btnWhite operator">÷</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnBlack number">4</div>
-                        <div class="btn btnBlack number">5</div>
-                        <div class="btn btnBlack number">6</div>
-                        <div class="btn btnWhite operator">x</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnBlack number">1</div>
-                        <div class="btn btnBlack number">2</div>
-                        <div class="btn btnBlack number">3</div>
-                        <div class="btn btnWhite operator">-</div>
-                    </div>
-                    <div class="row">
-                        <div class="btn btnBlack number">0</div>
-                        <div class="btn btnBlack decimal">.</div>
-                        <div class="btn btnWhite" id="equals">=</div>
-                        <div class="btn btnWhite operator">+</div>
-                    </div>
-                </div>
+            <div class="prevCalcs">
+                <input type="text" class="prevQuery" id="prevQuery" value="100+1000">
+                <input type="text" class="prevAns" id="prevAns" value="=1100">
             </div>
-
-            <div class="rightMenu">
-                <div class="row menus">
-                    <div class="btn menu disabled" onclick="clear_all()" id="clearAll">clear all</div>
-                    <div class="btn menu"><i class="bi bi-gear-fill"></i></div>
+        </div>
+        <div class="currentCalcs">
+            <input type="text" id="query" class="query" value="100+1000">
+            <input type="text" id="result" class="result" value="=1100">
+        </div>
+        <div class="system">
+            <div class="menus">
+                <div id="main" class="menu">main</div>
+                <div id="abc" class="menu">abc</div>
+                <div id="func" class="menu">func</div>
+                <div id="degRad">
+                    <div class="toggle-container">
+                        <div class="toggle-option" onclick="toggleOption('deg')">DEG</div>
+                        <div class="toggle-option" onclick="toggleOption('rad')">RAD</div>
+                        <div class="toggle-slider"></div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="btn btnWhite">%</div>
-                        <div class="btn btnWhite">\(\frac{a}{b}\)</div>
+                <div id="undo"><i class="fa-sharp fa-regular fa-rotate-left"></i></div>
+                <div id="redo"><i class="fa-sharp fa-regular fa-rotate-right"></i></div>
+                <div id="clearAll" class="disabled">clear all</div>
+                <div id="seting"><i class="fa-solid fa-wrench"></i></div>
+            </div>
+            <div class="buttons">
+                <!-- 3* gird -->
+                <div class="grid three-4">
+                        <button onclick="insert('7')">7</button>
+                        <button onclick="insert('8')">8</button>
+                        <button onclick="insert('9')">9</button>
+                        <button onclick="insert('4')">4</button>
+                        <button onclick="insert('5')">5</button>
+                        <button onclick="insert('6')">6</button>
+                        <button onclick="insert('1')">1</button>
+                        <button onclick="insert('2')">2</button>
+                        <button onclick="insert('3')">3</button>
+                        <button onclick="insert('0')">0</button>
+                        <button onclick="insert('.')">.</button>
+                        <button onclick="insert('(')">(</button>
                 </div>
-                <div class="row">
-                    <div class="btn btnWhite"><i class="fa-solid fa-left-long"></i></div>
-                    <div class="btn btnWhite"><i class="fa-solid fa-right-long"></i></div>
+                <div class="grid four-4">
+                    <button onclick="insert(')')">)</button>
+                    <button onclick="insert('^')">^</button>
+                    <button onclick="insert('√')">√</button>
+                    <button onclick="insert('!')">!</button>
+                    <button onclick="insert('sin')">sin</button>
+                    <button onclick="insert('cos')">cos</button>
+                    <button onclick="insert('tan')">tan</button>
+                    <button onclick="insert('asin')">asin</button>
+                    <button onclick="insert('acos')">acos</button>
+                    <button onclick="insert('atan')">atan</button>
+                    <button onclick="insert('ln')">ln</button>
+                    <button onclick="insert('log')">log</button>
+                    <button onclick="insert('m')">m</button>
+                    <button onclick="insert('ln')">ln</button>
+                    <button onclick="insert('log')">log</button>
+                    <button onclick="insert('log')">log</button>
                 </div>
-                <div class="row">
-                    <div class="btn btnWhite del" id="del"><i class="fa-solid fa-delete-left"></i></div>
-
-                </div>
-                <div class="row">
-                    <div class="btnEnter btn"><i class="bi bi-box-arrow-in-left"></i></div>
+                <div class="grid three-4">
+                    <button onclick="insert('÷')">÷</button>
+                    <button onclick="insert('×')">×</button>
+                    <button onclick="insert('-')">-</button>
+                    <button onclick="insert('+')">+</button>
+                    <button onclick="insert('e')">e</button>
+                    <button onclick="insert('π')">π</button>
+                    <button onclick="insert('x')">x</button>
+                    <button onclick="insert('y')">y</button>
+                    <button onclick="insert('z')">z</button>
+                    <button onclick="insert('a')">a</button>
+                    <button onclick="insert('b')">b</button>
+                    <button onclick="insert('b')">b</button>
                 </div>
             </div>
         </div>
-
-
     </div>
 
-    <script src="js/calculator.js"></script>
-    <script src="js/screen.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
