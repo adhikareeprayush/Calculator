@@ -1,241 +1,244 @@
+@import url('https://fonts.cdnfonts.com/css/times-new-roman');
+@font-face{
+font-family: 'Symbola';
+src: url('https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/font/Symbola.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+@import url('https://fonts.cdnfonts.com/css/arial-2');
 
-@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
 
-
-/* Clearing Default Styles */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Symbola','Times New Roman',serif;
 }
 
-/* Global Styles */
 html,body{
-    height: 100%;
+    overflow-x: hidden;
     width: 100%;
+    height: 100%;
     position: relative;
+    background-color: #ffffff;
 }
 
-body{
-    background-color: #f1f1f1;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+.calculator{ 
+    width: 700px;
+    height: 600px;
+    border: 1px solid #bebebe; 
 
-/* Container Styles */
-.container{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    height:auto;
-    width: 40%;
-    border: 1px solid #3e3e3e8f;
-    background-color: azure;
     position: absolute;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-}
 
-
-.answers{
-    width:100%;
-    height:200px;
-    background-color: #fff;
-}
-
-.screen{
-    width:100%;
-    height:50px;
-    background-color: #fff;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-    font-size: 30px;
-    font-weight: 500;
-    border-top:1px solid #3e3e3e8f;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+
+.previous{
+    width: 100%;
+    height: 300px; /* or set a specific height if needed */
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
 }
 
-.calculator{
-    background-color:#ededed;
-    padding:0px 10px;
+.freeSpace{
     width: 100%;
-    height: auto;
-    border-top:1px solid #3e3e3e8f;
+}
 
+.prevCalcs{
+    width: 100%;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: 1px solid #bebebe;
 }
 
-.leftMenu{
+.prevAns{
+    display: flex;
     width: 30%;
-}
-
-.centerMenu{
-    width:40%;
-}
-
-.rightMenu{
-    width: 20%;
-}
-
-.rightMenu .row{
-    align-items: center;
+    height: fit-content;
     justify-content: flex-end;
 }
 
-.row{
-    width: 100%;
-    margin-bottom:5px;
+.prevQuery{
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap:5px;
+    width: 70%;
+    height: fit-content;
+    justify-content: flex-end;
 }
 
-.btn{
-    width: 60px;
-    height: 40px;
+input[type="text"].prevAns{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    justify-content: flex-start;
+}
+
+input[type="text"].prevQuery{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    text-align: left;
+}
+
+.currentCalcs{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
     font-size: 20px;
     font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
+    border-bottom: 1px solid #bebebe;
 }
 
-.btnWhite{
-    box-shadow: inset 0 1px #ffffff40, inset 0 -1px #00000005;
-    background: linear-gradient(#fff,#fafafa);
-    border: 1px solid #d8d8d8 !important;
-    border-radius: 2px;
+.result{
+    display: flex;
+    width: 30%;
+    height: fit-content;
+    justify-content: flex-end;
 }
 
-.btnWhite:hover{
-    background:linear-gradient(#f1f1f1,#fff);
+.query{
+    display: flex;
+    width: 70%;
+    height: fit-content;
+    justify-content: flex-end;
 }
 
-.btnBlack{
-    box-shadow: inset 0 1px #ffffff1a, inset 0 -1px #00000005;
-    background: linear-gradient(rgba(0,0,0,.13),rgba(0,0,0,.16));
-    border: 1px solid #bbb;
-    border-radius: 2px;
-}
-
-.btnBlack:hover{
-    background:linear-gradient(#a4a4a499,#9a9999);
-}
-
-.del{
-    width: 60%;
-    color:black;
-}
-
-.btnEnter{
+input[type="text"].result{
+    display: flex;
     width: 100%;
-}
-
-.menus{
-    align-items: flex-start;
+    height: fit-content;
     justify-content: flex-start;
+    text-align: right;
 }
 
-.menu{
-    border:none;
-    background: transparent;
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
-    cursor: pointer;
+input[type="text"].query{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    text-align: left;
+}
 
-    font-size: 16px;
+input[type="text"]{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
     font-weight: 500;
+    text-align: right;
+    padding-right: 10px;
+    background-color: transparent;
+    /* border: 1px solid red; */
 }
 
-.disabled{
-    pointer-events: none;
-    opacity: 0.5;
+.previous{
+    width:100%;
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
-.btnEnter{
-    background:rgb(48, 90, 218);
-    color:#fff;
-}
-
-.btnEnter:hover{
-    background:rgb(48, 90, 218);
-}
-
-.fraction {
-    display: inline-grid;
-  
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  
-    font-size: 0.8em; 
-    vertical-align: top;
-  }
-  
-.numer{
-    border-bottom: 1px solid;
-}
-
-power{
-    font-size: 0.5em;
-    vertical-align: top;
-}
-
-nthroot{
-    font-size: 0.7rem;
-    vertical-align: top;
-}
-
-.menus .menu{
-    position: relative;
-}
-
-.leftMenu .menus .menu::after
-{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #3187ea;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transition: all 0.3s ease;
-}
-
-.leftMenu .menus .menu:hover::after
-{
-    transform: scaleX(1);
-}
-
-.leftMenu .menus .menu.active::before{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #3187ea;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(1);
-}
-
-
-
-/* Media Queries */
-
-@media screen and (max-width: 1024px){
-    .container{
-        width: 100%;
-    }
+#degRad{
+   display: flex;
+   align-items: center;
+    justify-content: space-between;
+    height: 35px;
     
 }
 
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    position: relative;
 
+    background:white;
+    border-radius: 5px;
+    box-shadow: inset 0 1px #ffffff40, inset 0 -1px #00000005;
+}
+
+.toggle-slider {
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    border: 1px solid #d8d8d8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.3s ease; /* Adjusted the transition property */
+    z-index:5;
+}
+
+.toggle-container .toggle-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    color: #000000a8;
+    font-size: 12px;
+    
+    position: relative;
+    z-index: 2; /* Added z-index to ensure the options are above the slider */
+}
+
+.toggle-option.active .toggle-slider {
+    left: 50%;
+}
+
+.system{
+    width:100%;
+    height:240px;
+    background-color: #ededed;
+    padding:10px 20px;
+    border: 1px solid #bebebe;
+}
+
+.menus{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.buttons{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.grid{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-gap: 10px;
+}
+
+.four-4{
+    grid-template-columns: repeat(4,1fr);
+}
+
+.three-4{
+    grid-template-columns: repeat(3,1fr);
+}
