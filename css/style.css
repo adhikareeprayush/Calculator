@@ -25,7 +25,7 @@ html,body{
 
 .calculator{ 
     width: 700px;
-    height: 600px;
+    height: auto;
     border: 1px solid #bebebe; 
 
     position: absolute;
@@ -58,7 +58,11 @@ html,body{
     padding: 0 20px;
     font-size: 20px;
     font-weight: 500;
-    border-bottom: 1px solid #bebebe;
+    border-top:1px solid #bebebe;
+}
+
+.prevCalcs:focus-within{
+    border: 1px solid #3187ea;
 }
 
 .prevAns{
@@ -98,7 +102,11 @@ input[type="text"].prevQuery{
     padding: 0 20px;
     font-size: 20px;
     font-weight: 500;
-    border-bottom: 1px solid #bebebe;
+    border-top: 1px solid #bebebe;
+}
+
+.currentCalcs:focus-within{
+    border: 1px solid #3187ea;
 }
 
 .result{
@@ -206,7 +214,7 @@ input[type="text"]{
 
 .system{
     width:100%;
-    height:240px;
+    height:auto;
     background-color: #ededed;
     padding:10px 20px;
     border: 1px solid #bebebe;
@@ -214,6 +222,7 @@ input[type="text"]{
 
 .menus{
     display: flex;
+    height: 40px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -225,20 +234,176 @@ input[type="text"]{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 0px;
 }
 
-.grid{
+button{
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-white{
+    box-shadow: inset 0 1px #ffffff40, inset 0 -1px #00000005;
+    background: linear-gradient(#fff,#fafafa);
+    border: 1px solid #d8d8d8 !important;
+    border-radius: 2px;
+}
+
+.btn-white:hover{
+    background:linear-gradient(#f1f1f1,#fff);
+}
+
+.btn-black{
+    box-shadow: inset 0 1px #ffffff1a, inset 0 -1px #00000005;
+    background: linear-gradient(rgba(0,0,0,.13),rgba(0,0,0,.16));
+    border: 1px solid #bbb;
+    border-radius: 2px;
+}
+
+.btn-black:hover{
+    background:linear-gradient(#a4a4a499,#9a9999);
+}
+
+.buttons{
     width: 100%;
     height: auto;
-    display: grid;
-    grid-gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.four-4{
-    grid-template-columns: repeat(4,1fr);
+#del{
+    width:100px;
 }
 
-.three-4{
-    grid-template-columns: repeat(3,1fr);
+#enter{
+    width: 120px;
+    background-color: #306bcb;
+    outline:none;
+    border:none;
+    color:white;
+}
+
+#enter:hover{
+    background-color: #2a5db3;
+}
+
+
+
+.mode{
+    width: 50px;
+    font-size: 15px;
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    cursor: default;
+}
+
+.mode::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #3187ea;
+    position: absolute;
+    bottom: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+
+.mode.active::after{
+    transform: scaleX(1);
+}
+
+.mode::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #3187ea91;
+    position: absolute;
+    bottom: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.mode:hover::before{
+    transform: scaleX(1);
+} 
+
+.mode:hover.active::before{
+    transform: scaleX(0);
+}
+
+.menu{
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.keyboard{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ededed;
+    gap:1px;
+}
+
+.keyboard .flex{
+    width:100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap:2px;
+}
+
+.keyboard button{
+    width:65px;
+}
+
+.keyboard{
+    display: none ;
+}
+
+.functions{
+    display: flex;
+   align-items: center;
+   justify-content: space-between; 
+   display: none;
+}
+
+.func1{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.func1 button{
+    width: 80px;
+}
+
+.func2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.func2 button{
+    width: 80px;
 }
