@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-9846671ed7c9dd69b10c93f6b04b31fe.css?vsn=d">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
@@ -15,9 +14,11 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Calc</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
 <body>
+    
 
     <div class="calculator" id="calculator">
         <div class="previous">
@@ -34,190 +35,142 @@
             <input type="text" id="query" class="query" value="100+1000">
             <input type="text" id="result" class="result" value="=1100">
         </div>
-        <div class="system">
-            <div class="menus">
-                <div class="menu">
-                    <div id="main" class="mode active">main</div>
-                    <div id="abc" class="mode">abc</div>
-                    <div id="func" class="mode">func</div>
-                </div>
-                <div id="degRad">
-                    <div class="toggle-container">
-                        <div class="toggle-option" onclick="toggleOption('deg')">DEG</div>
-                        <div class="toggle-option" onclick="toggleOption('rad')">RAD</div>
-                        <div class="toggle-slider"></div>
-                    </div>
-                </div>
-                <div id="undo"><i class="fa-sharp fa-regular fa-rotate-left"></i></div>
-                <div id="redo"><i class="fa-sharp fa-regular fa-rotate-right"></i></div>
-                <div id="clearAll" class="disabled">clear all</div>
-                <div id="seting"><i class="fa-solid fa-wrench"></i></div>
-            </div>
-            <div class="buttons">
-                <div class="symbols d-flex flex-column justify-content-between gap-1">
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-white" id="sq">\(a^2\)</button>
-                        <button class="btn-white" id="pwn">\(a^n\)</button>
-                        <button class="btn-white" id="mod">|a|</button>
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-white" id="sqrt">\(\sqrt{}\)</button>
-                        <button class="btn-white" id="sqrtn">\(\sqrt[n]{}\)</button>
-                        <button class="btn-white" id="pi">\(\pi\)</button>
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-white" id="sin">\(\sin\)</button>
-                        <button class="btn-white" id="cos">\(\cos\)</button>
-                        <button class="btn-white" id="tan">\(\tan\)</button>
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-white" id="bracOpen">(</button>
-                        <button class="btn-white" id="bracClose">)</button>
-                        <button class="btn-white" id="comma">,</button>
-                    </div>
-                </div>
-                <div class="numbers d-flex flex-column justify-content-between gap-1">
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-black" id="7">7</button>
-                        <button class="btn-black" id="8">8</button>
-                        <button class="btn-black" id="9">9</button>
-                        <button class="btn-white" id="÷">\(\div\)</button>
-
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-black" id="1">4</button>
-                        <button class="btn-black" id="2">5</button>
-                        <button class="btn-black" id="3">6</button>
-                        <button class="btn-white" id="×">\(\times\)</button>
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-black" id="1">1</button>
-                        <button class="btn-black" id="2">2</button>
-                        <button class="btn-black" id="3">3</button>
-                        <button class="btn-white" id="−">−</button>
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-black" id="0">0</button>
-                        <button class="btn-black" id=".">.</button>
-                        <button class="btn-white" id="ans">ans</button>
-                        <button class="btn-white" id="+">+</button>
-                    </div>
-                </div>
-                <div class="controls d-flex flex-column justify-content-between gap-1">
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-white" id="%">%</button>
-                        <button class="btn-white" id="a/b">\(\frac{a}{b}\)</button>
-                    </div>
-                    <div class="flex d-flex gap-1">
-                        <button class="btn-black" id="left"><i class="fa-solid fa-left-long"></i></button>
-                        <button class="btn-black" id="right"><i class="fa-solid fa-right-long"></i></button>
-                    </div>
-                    <div class="flex d-flex gap-1 justify-content-end">
-                        <button class="btn-black" id="del"><i class="fa-solid fa-delete-left"></i></button>
-                    </div>
-                    <div class="flex d-flex gap-1 justify-content-end">
-                        <button class="" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
-                    </div>
+        <div class="keypadControls">
+            <div id="main" class="mode active">main</div>
+            <div id="abc" class="mode">abc</div>
+            <div id="func" class="mode">func</div>
+            <div id="degRad">
+                <div class="toggle-container">
+                    <div class="toggle-option" onclick="toggleOption('deg')">DEG</div>
+                    <div class="toggle-option" onclick="toggleOption('rad')">RAD</div>
+                    <div class="toggle-slider"></div>
                 </div>
             </div>
-            <div class="keyboard">
-                <div class="flex d-flex">
-                    <button class="btn-white letter" id="q">q</button>
-                    <button class="btn-white letter" id="w">w</button>
-                    <button class="btn-white letter" id="e">e</button>
-                    <button class="btn-white letter" id="r">r</button>
-                    <button class="btn-white letter" id="t">t</button>
-                    <button class="btn-white letter " id="y">y</button>
-                    <button class="btn-white letter" id="u">u</button>
-                    <button class="btn-white letter" id="i">i</button>
-                    <button class="btn-white letter" id="o">o</button>
-                    <button class="btn-white letter" id="p">p</button>
-                </div>
-                <div class="flex d-flex">
-                    <button class="btn-white letter" id="s">s</button>
-                    <button class="btn-white letter" id="a">a</button>
-                    <button class="btn-white letter" id="d">d</button>
-                    <button class="btn-white letter" id="f">f</button>
-                    <button class="btn-white letter" id="g">g</button>
-                    <button class="btn-white letter" id="h">h</button>
-                    <button class="btn-white letter" id="j">j</button>
-                    <button class="btn-white letter" id="k">k</button>
-                    <button class="btn-white letter" id="l">l</button>
-                </div>
-                <div class="flex d-flex">
-                    <button class="btn-black" id="equals">=</button>
-                    <button class="btn-white letter" id="z">z</button>
-                    <button class="btn-white letter" id="x">x</button>
-                    <button class="btn-white letter" id="c">c</button>
-                    <button class="btn-white letter" id="v">v</button>
-                    <button class="btn-white letter" id="b">b</button>
-                    <button class="btn-white letter" id="n">n</button>
-                    <button class="btn-white letter" id="m">m</button>
-                    <button class="btn-white" id="comma">,</button>
-                    <button class="btn-black" id="del"><i class="fa-solid fa-delete-left"></i></button>
-                </div>
-                <div class="flex d-flex">
-                    <button class="btn-black" id="up"><i class="fa-solid fa-up"></i></button>
-                    <button class="btn-white" id="bracOpen">(</button>
-                    <button class="btn-white" id="bracClose">)</button>
-                    <button class="btn-white" id="openBigBrac">[</button>
-                    <button class="btn-white" id="closeBigBrac">]</button>
-                    <button class="btn-white" id="exclamation">!</button>
-                    <button class="btn-white" id="invcomma">'</button>
-                    <button class="btn-white" id="pi">\(\pi\)</button>
-                    <button class="btn-black" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
-                </div>
-            </div>
-            <div class="flex functions">
-                <div class="flex func1">
-                    <div class="flex d-flex">
-                        <button class="btn-white" id="sin">\(\sin\)</button>
-                        <button class="btn-white" id="cos">\(\cos\)</button>
-                        <button class="btn-white" id="tan">\(\tan\)</button>
-                    </div>
-                    <div class="flex  d-flex">
-                        <button class="btn-white" id="sinh">\(\sinh\)</button>
-                        <button class="btn-white" id="cosh">\(\cosh\)</button>
-                        <button class="btn-white" id="tanh">\(\tanh\)</button>
-                    </div>
-                    <div class="flex  d-flex">
-                        <button class="btn-white" id="asin">\(\sin^{-1}\)</button>
-                        <button class="btn-white" id="acos">\(\cos^{-1}\)</button>
-                        <button class="btn-white" id="atan">\(\tan^{-1}\)</button>
-                    </div>
-                    <div class="flex  d-flex">
-                        <button class="btn-white" id="npr">\( ^nP_r \)</button>
-                        <button class="btn-white" id="ncr">\(\cosh^{-1}\)</button>
-                        <button class="btn-white" id="!">\(\tanh^{-1}\)</button>
-                    </div>
-                </div>
-                <div class="flex func2">
-                    <div class="flex d-flex">
-                        <button class="btn-white" id="ln">\(\ln\)</button>
-                        <button class="btn-white" id="log">\(\log\)</button>
-                        <button class="btn-white" id="e">e</button>
-                    </div>
-                    <div class="flex  d-flex">
-                        <button class="btn-white" id="exp">\(\exp\)</button>
-                        <button class="btn-white" id="10^x">\(10^x\)</button>
-                        <button class="btn-white" id="2^x">\(2^x\)</button>
-                    </div>
-                    <div class="flex  d-flex">
-                        <button class="btn-white" id="abs">|a|</button>
-                        <button class="btn-white" id="floor">\(\lfloor{}\)</button>
-                        <button class="btn-white" id="ceil">\(\lceil{}\)</button>
-                    </div>
-                    <div class="flex  d-flex">
-                        <button class="btn-white" id="gcd">gcd</button>
-                        <button class="btn-white" id="lcm">lcm</button>
-                        <button class="btn-white" id="prime">prime</button>
-                    </div>
-                </div>
-            </div>
-
+            <div class="disabled" id="undo"><i class="fa-sharp fa-regular fa-rotate-left"></i></div>
+            <div class="disabled" id="redo"><i class="fa-sharp fa-regular fa-rotate-right"></i></div>
+            <div class="disabled" id="clearAll" class="disabled">clear all</div>
+            <div id="seting"><i class="fa-solid fa-wrench"></i></div>
+        </div>
+        <div class="keypad-basic" id="keypad-basic">
+                <button class="btn-white" id="sq">\(a^2\)</button>
+                <button class="btn-white" id="pwn">\(a^n\)</button>
+                <button class="btn-white" id="mod">|a|</button>
+                <div class="gap"></div>
+                <button class="btn-black" id="7">7</button>
+                <button class="btn-black" id="8">8</button>
+                <button class="btn-black" id="9">9</button>
+                <button class="btn-white" id="÷">\(\div\)</button>
+                <div class="gap"></div>
+                <button class="btn-white" id="%">%</button>
+                <button class="btn-white" id="a/b">\(\frac{a}{b}\)</button>
+                <button class="btn-white" id="sqrt">\(\sqrt{}\)</button>
+                <button class="btn-white" id="sqrtn">\(\sqrt[n]{}\)</button>
+                <button class="btn-white" id="pi">\(\pi\)</button>
+                <div class="gap"></div>
+                <button class="btn-black" id="1">4</button>
+                <button class="btn-black" id="2">5</button>
+                <button class="btn-black" id="3">6</button>
+                <button class="btn-white" id="×">\(\times\)</button>
+                <div class="gap"></div>
+                <button class="btn-black" id="left"><i class="fa-solid fa-left-long"></i></button>
+                <button class="btn-black" id="right"><i class="fa-solid fa-right-long"></i></button>
+                <button class="btn-white" id="sin">\(\sin\)</button>
+                <button class="btn-white" id="cos">\(\cos\)</button>
+                <button class="btn-white" id="tan">\(\tan\)</button>
+                <div class="gap"></div>
+                <button class="btn-black" id="1">1</button>
+                <button class="btn-black" id="2">2</button>
+                <button class="btn-black" id="3">3</button>
+                <button class="btn-white" id="−">−</button>
+                <div class="gap"></div>
+                <div class="gap"></div>
+                <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
+                <button class="btn-white" id="bracOpen">(</button>
+                <button class="btn-white" id="bracClose">)</button>
+                <button class="btn-white" id="comma">,</button>
+                <div class="gap"></div>
+                <button class="btn-black" id="0">0</button>
+                <button class="btn-black" id=".">.</button>
+                <button class="btn-white" id="ans">ans</button>
+                <button class="btn-white" id="+">+</button>
+                <div class="gap"></div>
+                <button class="enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
+        </div>
+        <div class="keypad-basic abc" id="keypad-abc"  style="display: none;">
+            <button class="btn-white letter" id="q">q</button>
+            <button class="btn-white letter" id="w">w</button>
+            <button class="btn-white letter" id="e">e</button>
+            <button class="btn-white letter" id="r">r</button>
+            <button class="btn-white letter" id="t">t</button>
+            <button class="btn-white letter " id="y">y</button>
+            <button class="btn-white letter" id="u">u</button>
+            <button class="btn-white letter" id="i">i</button>
+            <button class="btn-white letter" id="o">o</button>
+            <button class="btn-white letter" id="p">p</button>
+            <div class="gap"></div>
+            <button class="btn-white letter" id="a">a</button>
+            <button class="btn-white letter" id="s">s</button>
+            <button class="btn-white letter" id="d">d</button>
+            <button class="btn-white letter" id="f">f</button>
+            <button class="btn-white letter" id="g">g</button>
+            <button class="btn-white letter" id="h">h</button>
+            <button class="btn-white letter" id="j">j</button>
+            <button class="btn-white letter" id="k">k</button>
+            <button class="btn-white letter" id="l">l</button>
+            <div class="gap"></div>
+            <button class="btn-black" id="equals">=</button>
+            <button class="btn-white letter" id="z">z</button>
+            <button class="btn-white letter" id="x">x</button>
+            <button class="btn-white letter" id="c">c</button>
+            <button class="btn-white letter" id="v">v</button>
+            <button class="btn-white letter" id="b">b</button>
+            <button class="btn-white letter" id="n">n</button>
+            <button class="btn-white letter" id="m">m</button>
+            <button class="btn-white" id="comma">,</button>
+            <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="btn-black up" id="up"><i class="fa-solid fa-up"></i></button>
+            <button class="btn-white" id="bracOpen">(</button>
+            <button class="btn-white" id="bracClose">)</button>
+            <button class="btn-white" id="openBigBrac">[</button>
+            <button class="btn-white" id="closeBigBrac">]</button>
+            <button class="btn-white" id="exclamation">!</button>
+            <button class="btn-white" id="invcomma">'</button>
+            <button class="btn-white" id="pi">\(\pi\)</button>
+            <button class="btn-black enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
+        </div>
+        <div class="keypad-basic func" id="keypad-func" style="display: none;">
+            <button class="btn-white" id="sin">\(\sin\)</button>
+            <button class="btn-white" id="cos">\(\cos\)</button>
+            <button class="btn-white" id="tan">\(\tan\)</button>
+            <div class="gap"></div>
+            <button class="btn-white" id="pwn">\(a^n\)</button>
+            <button class="btn-white" id="sqrtn">\(\sqrt{}\)</button>
+            <button class="btn-white" id="sqrt">\(\sqrt[n]{}\)</button>
+            <button class="btn-white" id="asin">\(\sin^{-1}\)</button>
+            <button class="btn-white" id="acos">\(\cos^{-1}\)</button>
+            <button class="btn-white" id="atan">\(\tan^{-1}\)</button>
+            <div class="gap"></div>
+            <button class="btn-white" id="exp">\(e^x\)</button>
+            <button class="btn-white" id="10^x">\(abs\)</button>
+            <button class="btn-white" id="2^x">\(round\)</button>
+            <button class="btn-white" id="pwn">\(mean\)</button>
+            <button class="btn-white" id="sqrtn">\(stdev\)</button>
+            <button class="btn-white" id="sqrt">\(stdevp\)</button>
+            <div class="gap"></div>
+            <button class="btn-white" id="ln">\(ln\)</button>
+            <button class="btn-white" id="floor">\(log\)</button>
+            <button class="btn-black" id="del"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="btn-white" id="npr">\( ^nP_r \)</button>
+            <button class="btn-white" id="ncr">\( ^nC_r \)</button>
+            <button class="btn-white" id="!">!</button>
+            <div class="gap"></div>
+            <button class="btn-white" id="e">\(e\)</button>
+            <button class="btn-white" id="pi">\(\pi\)</button>
+            <button class="enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
