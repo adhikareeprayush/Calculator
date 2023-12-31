@@ -325,10 +325,16 @@ input[type="text"]{
 
 @media (max-width:600px)
 {
-    .calculator{
+       .calculator{
         height: 100%;
         width: 100%;
+        overflow: hidden;
     } 
+
+    .previous{
+        height: 70%;
+    }
+
 
     .previous{
         height: 71%;
