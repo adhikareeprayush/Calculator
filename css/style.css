@@ -330,13 +330,7 @@ input[type="text"]{
         width: 100%;
         overflow: hidden;
     } 
-
     .previous{
         height: 70%;
-    }
-
-
-    .previous{
-        height: 71%;
     }
 }
