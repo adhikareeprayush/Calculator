@@ -14,7 +14,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
@@ -30,10 +30,10 @@
                 <input type="text" class="prevQuery" id="prevQuery" value="100+1000">
                 <input type="text" class="prevAns" id="prevAns" value="=1100">
             </div>
-        </div>
-        <div class="currentCalcs">
-            <input type="text" id="query" class="query" value="100+1000">
-            <input type="text" id="result" class="result" value="=1100">
+            <div class="currentCalcs">
+                <input type="text" id="query" class="query" value="100+1000">
+                <input type="text" id="result" class="result" value="=1100">
+            </div>
         </div>
         <div class="keypadControls">
             <div id="main" class="mode active">main</div>
@@ -51,126 +51,126 @@
             <div class="disabled" id="clearAll" class="disabled">clear all</div>
             <div id="seting"><i class="fa-solid fa-wrench"></i></div>
         </div>
-        <div class="keypad-basic" id="keypad-basic">
-                <button class="btn-white" id="sq">\(a^2\)</button>
-                <button class="btn-white" id="pwn">\(a^n\)</button>
-                <button class="btn-white" id="mod">|a|</button>
+            <div class="keypad-basic" id="keypad-basic">
+                    <button class="btn-white" id="sq">\(a^2\)</button>
+                    <button class="btn-white" id="pwn">\(a^n\)</button>
+                    <button class="btn-white" id="mod">|a|</button>
+                    <div class="gap"></div>
+                    <button class="btn-black" id="7">7</button>
+                    <button class="btn-black" id="8">8</button>
+                    <button class="btn-black" id="9">9</button>
+                    <button class="btn-white" id="÷">\(\div\)</button>
+                    <div class="gap"></div>
+                    <button class="btn-white" id="%">%</button>
+                    <button class="btn-white" id="a/b">\(\frac{a}{b}\)</button>
+                    <button class="btn-white" id="sqrt">\(\sqrt{}\)</button>
+                    <button class="btn-white" id="sqrtn">\(\sqrt[n]{}\)</button>
+                    <button class="btn-white" id="pi">\(\pi\)</button>
+                    <div class="gap"></div>
+                    <button class="btn-black" id="1">4</button>
+                    <button class="btn-black" id="2">5</button>
+                    <button class="btn-black" id="3">6</button>
+                    <button class="btn-white" id="×">\(\times\)</button>
+                    <div class="gap"></div>
+                    <button class="btn-black" id="left"><i class="fa-solid fa-left-long"></i></button>
+                    <button class="btn-black" id="right"><i class="fa-solid fa-right-long"></i></button>
+                    <button class="btn-white" id="sin">\(\sin\)</button>
+                    <button class="btn-white" id="cos">\(\cos\)</button>
+                    <button class="btn-white" id="tan">\(\tan\)</button>
+                    <div class="gap"></div>
+                    <button class="btn-black" id="1">1</button>
+                    <button class="btn-black" id="2">2</button>
+                    <button class="btn-black" id="3">3</button>
+                    <button class="btn-white" id="−">−</button>
+                    <div class="gap"></div>
+                    <div class="gap"></div>
+                    <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
+                    <button class="btn-white" id="bracOpen">(</button>
+                    <button class="btn-white" id="bracClose">)</button>
+                    <button class="btn-white" id="comma">,</button>
+                    <div class="gap"></div>
+                    <button class="btn-black" id="0">0</button>
+                    <button class="btn-black" id=".">.</button>
+                    <button class="btn-white" id="ans">ans</button>
+                    <button class="btn-white" id="+">+</button>
+                    <div class="gap"></div>
+                    <button class="enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
+            </div>
+            <div class="keypad-basic abc" id="keypad-abc"  style="display: none;">
+                <button class="btn-white letter" id="q">q</button>
+                <button class="btn-white letter" id="w">w</button>
+                <button class="btn-white letter" id="e">e</button>
+                <button class="btn-white letter" id="r">r</button>
+                <button class="btn-white letter" id="t">t</button>
+                <button class="btn-white letter " id="y">y</button>
+                <button class="btn-white letter" id="u">u</button>
+                <button class="btn-white letter" id="i">i</button>
+                <button class="btn-white letter" id="o">o</button>
+                <button class="btn-white letter" id="p">p</button>
                 <div class="gap"></div>
-                <button class="btn-black" id="7">7</button>
-                <button class="btn-black" id="8">8</button>
-                <button class="btn-black" id="9">9</button>
-                <button class="btn-white" id="÷">\(\div\)</button>
+                <button class="btn-white letter" id="a">a</button>
+                <button class="btn-white letter" id="s">s</button>
+                <button class="btn-white letter" id="d">d</button>
+                <button class="btn-white letter" id="f">f</button>
+                <button class="btn-white letter" id="g">g</button>
+                <button class="btn-white letter" id="h">h</button>
+                <button class="btn-white letter" id="j">j</button>
+                <button class="btn-white letter" id="k">k</button>
+                <button class="btn-white letter" id="l">l</button>
                 <div class="gap"></div>
-                <button class="btn-white" id="%">%</button>
-                <button class="btn-white" id="a/b">\(\frac{a}{b}\)</button>
-                <button class="btn-white" id="sqrt">\(\sqrt{}\)</button>
-                <button class="btn-white" id="sqrtn">\(\sqrt[n]{}\)</button>
+                <button class="btn-black" id="equals">=</button>
+                <button class="btn-white letter" id="z">z</button>
+                <button class="btn-white letter" id="x">x</button>
+                <button class="btn-white letter" id="c">c</button>
+                <button class="btn-white letter" id="v">v</button>
+                <button class="btn-white letter" id="b">b</button>
+                <button class="btn-white letter" id="n">n</button>
+                <button class="btn-white letter" id="m">m</button>
+                <button class="btn-white" id="comma">,</button>
+                <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
+                <button class="btn-black up" id="up"><i class="fa-solid fa-up"></i></button>
+                <button class="btn-white" id="bracOpen">(</button>
+                <button class="btn-white" id="bracClose">)</button>
+                <button class="btn-white" id="openBigBrac">[</button>
+                <button class="btn-white" id="closeBigBrac">]</button>
+                <button class="btn-white" id="exclamation">!</button>
+                <button class="btn-white" id="invcomma">'</button>
                 <button class="btn-white" id="pi">\(\pi\)</button>
-                <div class="gap"></div>
-                <button class="btn-black" id="1">4</button>
-                <button class="btn-black" id="2">5</button>
-                <button class="btn-black" id="3">6</button>
-                <button class="btn-white" id="×">\(\times\)</button>
-                <div class="gap"></div>
-                <button class="btn-black" id="left"><i class="fa-solid fa-left-long"></i></button>
-                <button class="btn-black" id="right"><i class="fa-solid fa-right-long"></i></button>
+                <button class="btn-black enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
+            </div>
+            <div class="keypad-basic func" id="keypad-func" style="display: none;">
                 <button class="btn-white" id="sin">\(\sin\)</button>
                 <button class="btn-white" id="cos">\(\cos\)</button>
                 <button class="btn-white" id="tan">\(\tan\)</button>
                 <div class="gap"></div>
-                <button class="btn-black" id="1">1</button>
-                <button class="btn-black" id="2">2</button>
-                <button class="btn-black" id="3">3</button>
-                <button class="btn-white" id="−">−</button>
+                <button class="btn-white" id="pwn">\(a^n\)</button>
+                <button class="btn-white" id="sqrtn">\(\sqrt{}\)</button>
+                <button class="btn-white" id="sqrt">\(\sqrt[n]{}\)</button>
+                <button class="btn-white" id="asin">\(\sin^{-1}\)</button>
+                <button class="btn-white" id="acos">\(\cos^{-1}\)</button>
+                <button class="btn-white" id="atan">\(\tan^{-1}\)</button>
                 <div class="gap"></div>
+                <button class="btn-white" id="exp">\(e^x\)</button>
+                <button class="btn-white" id="10^x">\(abs\)</button>
+                <button class="btn-white" id="2^x">\(round\)</button>
+                <button class="btn-white" id="pwn">\(mean\)</button>
+                <button class="btn-white" id="sqrtn">\(stdev\)</button>
+                <button class="btn-white" id="sqrt">\(stdevp\)</button>
                 <div class="gap"></div>
-                <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
-                <button class="btn-white" id="bracOpen">(</button>
-                <button class="btn-white" id="bracClose">)</button>
-                <button class="btn-white" id="comma">,</button>
+                <button class="btn-white" id="ln">\(ln\)</button>
+                <button class="btn-white" id="floor">\(log\)</button>
+                <button class="btn-black" id="del"><i class="fa-solid fa-delete-left"></i></button>
+                <button class="btn-white" id="npr">\( ^nP_r \)</button>
+                <button class="btn-white" id="ncr">\( ^nC_r \)</button>
+                <button class="btn-white" id="!">!</button>
                 <div class="gap"></div>
-                <button class="btn-black" id="0">0</button>
-                <button class="btn-black" id=".">.</button>
-                <button class="btn-white" id="ans">ans</button>
-                <button class="btn-white" id="+">+</button>
-                <div class="gap"></div>
+                <button class="btn-white" id="e">\(e\)</button>
+                <button class="btn-white" id="pi">\(\pi\)</button>
                 <button class="enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
-        </div>
-        <div class="keypad-basic abc" id="keypad-abc"  style="display: none;">
-            <button class="btn-white letter" id="q">q</button>
-            <button class="btn-white letter" id="w">w</button>
-            <button class="btn-white letter" id="e">e</button>
-            <button class="btn-white letter" id="r">r</button>
-            <button class="btn-white letter" id="t">t</button>
-            <button class="btn-white letter " id="y">y</button>
-            <button class="btn-white letter" id="u">u</button>
-            <button class="btn-white letter" id="i">i</button>
-            <button class="btn-white letter" id="o">o</button>
-            <button class="btn-white letter" id="p">p</button>
-            <div class="gap"></div>
-            <button class="btn-white letter" id="a">a</button>
-            <button class="btn-white letter" id="s">s</button>
-            <button class="btn-white letter" id="d">d</button>
-            <button class="btn-white letter" id="f">f</button>
-            <button class="btn-white letter" id="g">g</button>
-            <button class="btn-white letter" id="h">h</button>
-            <button class="btn-white letter" id="j">j</button>
-            <button class="btn-white letter" id="k">k</button>
-            <button class="btn-white letter" id="l">l</button>
-            <div class="gap"></div>
-            <button class="btn-black" id="equals">=</button>
-            <button class="btn-white letter" id="z">z</button>
-            <button class="btn-white letter" id="x">x</button>
-            <button class="btn-white letter" id="c">c</button>
-            <button class="btn-white letter" id="v">v</button>
-            <button class="btn-white letter" id="b">b</button>
-            <button class="btn-white letter" id="n">n</button>
-            <button class="btn-white letter" id="m">m</button>
-            <button class="btn-white" id="comma">,</button>
-            <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
-            <button class="btn-black up" id="up"><i class="fa-solid fa-up"></i></button>
-            <button class="btn-white" id="bracOpen">(</button>
-            <button class="btn-white" id="bracClose">)</button>
-            <button class="btn-white" id="openBigBrac">[</button>
-            <button class="btn-white" id="closeBigBrac">]</button>
-            <button class="btn-white" id="exclamation">!</button>
-            <button class="btn-white" id="invcomma">'</button>
-            <button class="btn-white" id="pi">\(\pi\)</button>
-            <button class="btn-black enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
-        </div>
-        <div class="keypad-basic func" id="keypad-func" style="display: none;">
-            <button class="btn-white" id="sin">\(\sin\)</button>
-            <button class="btn-white" id="cos">\(\cos\)</button>
-            <button class="btn-white" id="tan">\(\tan\)</button>
-            <div class="gap"></div>
-            <button class="btn-white" id="pwn">\(a^n\)</button>
-            <button class="btn-white" id="sqrtn">\(\sqrt{}\)</button>
-            <button class="btn-white" id="sqrt">\(\sqrt[n]{}\)</button>
-            <button class="btn-white" id="asin">\(\sin^{-1}\)</button>
-            <button class="btn-white" id="acos">\(\cos^{-1}\)</button>
-            <button class="btn-white" id="atan">\(\tan^{-1}\)</button>
-            <div class="gap"></div>
-            <button class="btn-white" id="exp">\(e^x\)</button>
-            <button class="btn-white" id="10^x">\(abs\)</button>
-            <button class="btn-white" id="2^x">\(round\)</button>
-            <button class="btn-white" id="pwn">\(mean\)</button>
-            <button class="btn-white" id="sqrtn">\(stdev\)</button>
-            <button class="btn-white" id="sqrt">\(stdevp\)</button>
-            <div class="gap"></div>
-            <button class="btn-white" id="ln">\(ln\)</button>
-            <button class="btn-white" id="floor">\(log\)</button>
-            <button class="btn-black" id="del"><i class="fa-solid fa-delete-left"></i></button>
-            <button class="btn-white" id="npr">\( ^nP_r \)</button>
-            <button class="btn-white" id="ncr">\( ^nC_r \)</button>
-            <button class="btn-white" id="!">!</button>
-            <div class="gap"></div>
-            <button class="btn-white" id="e">\(e\)</button>
-            <button class="btn-white" id="pi">\(\pi\)</button>
-            <button class="enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
-        </div>
+            </div>
     </div>
 
 
-    <script src="js/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
