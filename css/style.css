@@ -37,7 +37,7 @@ html,body{
 
 .previous{
     width: 100%;
-    height: 330px; /* or set a specific height if needed */
+    height:calc(100% - 220px);
     display: flex;
     align-items: flex-end; /* Align items to the bottom */
     flex-direction: column;
@@ -47,7 +47,7 @@ html,body{
 
 .prevCalcs{
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,7 +96,7 @@ input[type="text"].query{
 
 .currentCalcs{
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -190,7 +190,7 @@ input[type="text"]{
 
  
 .mode{
-    width: 50px;
+    width: auto;
     font-size: 15px;
     color: #000;
     font-family: 'Arial', sans-serif;
@@ -247,6 +247,7 @@ input[type="text"]{
     row-gap: 5px;
     gap:2px;
     width: 100%;
+    height:160px;
 }
 
 .abc{
@@ -323,14 +324,39 @@ input[type="text"]{
     pointer-events: none;
 }
 
+.box{
+    width:100%;
+    height:160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width:600px)
 {
-       .calculator{
+    .calculator{
         height: 100%;
         width: 100%;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
     } 
+
+}
+
+@media (height<=760px)
+{
+    .calculator{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    } 
+
     .previous{
-        height: 70%;
+        height:calc(100% - 220px);
+        overflow: hidden;
     }
+
+
 }
