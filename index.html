@@ -12,9 +12,14 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+     <!-- MathQuill styles and scripts -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="mathquill-0.10.1/mathquill.css">
+     <script src="mathquill-0.10.1/mathquill.js"></script>
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
@@ -23,16 +28,17 @@
     <div class="calculator" id="calculator">
         <div class="previous">
             <div class="prevCalcs">
-                <input type="text" class="prevQuery" id="prevQuery" value="100+1000">
-                <input type="text" class="prevAns" id="prevAns" value="=1100">
+                <div class="qsn" contenteditable="true">\( \int_{a}^{b} f(x) \, dx \) is calculated as follows:
+                    \[ \int_{a}^{b} f(x) \, dx \]</div>
+                <div class="ans" contenteditable="false">Hi</div>
             </div>
             <div class="prevCalcs">
-                <input type="text" class="prevQuery" id="prevQuery" value="100+1000">
-                <input type="text" class="prevAns" id="prevAns" value="=1100">
+                <div class="qsn" contenteditable="true">Hello</div>
+                <div class="ans" contenteditable="false">Hi</div>
             </div>
-            <div class="currentCalcs">
-                <input type="text" id="query" class="query" value="100+1000">
-                <input type="text" id="result" class="result" value="=1100">
+            <div class="current prevCalcs">
+                <div class="qsn" contenteditable="true">Hello</div>
+                <div class="ans" contenteditable="false">Hi</div>
             </div>
         </div>
         <div class="keypadControls">
@@ -49,38 +55,38 @@
             <div class="disabled" id="undo"><i class="fa-sharp fa-regular fa-rotate-left"></i></div>
             <div class="disabled" id="redo"><i class="fa-sharp fa-regular fa-rotate-right"></i></div>
             <div class="disabled" id="clearAll" class="disabled">clear all</div>
-            <div id="seting"><i class="fa-solid fa-wrench"></i></div>
+            <div id="setting"><i class="fa-solid fa-wrench"></i></div>
         </div>
             <div class="keypad-basic" id="keypad-basic">
-                    <button class="btn-white" id="sq">\(a^2\)</button>
-                    <button class="btn-white" id="pwn">\(a^n\)</button>
+                    <button class="btn-white" id="sq">a<sup>2</sup></button>
+                    <button class="btn-white" id="pwn">a<sup>n</sup></button>
                     <button class="btn-white" id="mod">|a|</button>
                     <div class="gap"></div>
-                    <button class="btn-black" id="7">7</button>
-                    <button class="btn-black" id="8">8</button>
-                    <button class="btn-black" id="9">9</button>
+                    <button class="btn-black number" id="7">7</button>
+                    <button class="btn-black number" id="8">8</button>
+                    <button class="btn-black number" id="9">9</button>
                     <button class="btn-white" id="÷">\(\div\)</button>
                     <div class="gap"></div>
-                    <button class="btn-white" id="%">%</button>
+                    <button class="btn-white" id="percentof">%</button>
                     <button class="btn-white" id="a/b">\(\frac{a}{b}\)</button>
-                    <button class="btn-white" id="sqrt">\(\sqrt{}\)</button>
-                    <button class="btn-white" id="sqrtn">\(\sqrt[n]{}\)</button>
-                    <button class="btn-white" id="pi">\(\pi\)</button>
+                    <button class="btn-white" id="sqrt">√</button>
+                    <button class="btn-white" id="sqrtn"><sup>n</sup>√</button>
+                    <button class="btn-white" id="pi">π</button>
                     <div class="gap"></div>
-                    <button class="btn-black" id="1">4</button>
-                    <button class="btn-black" id="2">5</button>
-                    <button class="btn-black" id="3">6</button>
+                    <button class="btn-black number" id="1">4</button>
+                    <button class="btn-black number" id="2">5</button>
+                    <button class="btn-black number" id="3">6</button>
                     <button class="btn-white" id="×">\(\times\)</button>
                     <div class="gap"></div>
                     <button class="btn-black" id="left"><i class="fa-solid fa-left-long"></i></button>
                     <button class="btn-black" id="right"><i class="fa-solid fa-right-long"></i></button>
-                    <button class="btn-white" id="sin">\(\sin\)</button>
-                    <button class="btn-white" id="cos">\(\cos\)</button>
-                    <button class="btn-white" id="tan">\(\tan\)</button>
+                    <button class="btn-white" id="sin">sin</button>
+                    <button class="btn-white" id="cos">cos</button>
+                    <button class="btn-white" id="tan">tan</button>
                     <div class="gap"></div>
-                    <button class="btn-black" id="1">1</button>
-                    <button class="btn-black" id="2">2</button>
-                    <button class="btn-black" id="3">3</button>
+                    <button class="btn-black number" id="1">1</button>
+                    <button class="btn-black number" id="2">2</button>
+                    <button class="btn-black number" id="3">3</button>
                     <button class="btn-white" id="−">−</button>
                     <div class="gap"></div>
                     <div class="gap"></div>
@@ -89,8 +95,8 @@
                     <button class="btn-white" id="bracClose">)</button>
                     <button class="btn-white" id="comma">,</button>
                     <div class="gap"></div>
-                    <button class="btn-black" id="0">0</button>
-                    <button class="btn-black" id=".">.</button>
+                    <button class="btn-black number" id="0">0</button>
+                    <button class="btn-black number" id=".">.</button>
                     <button class="btn-white" id="ans">ans</button>
                     <button class="btn-white" id="+">+</button>
                     <div class="gap"></div>
@@ -135,42 +141,42 @@
                 <button class="btn-white" id="closeBigBrac">]</button>
                 <button class="btn-white" id="exclamation">!</button>
                 <button class="btn-white" id="invcomma">'</button>
-                <button class="btn-white" id="pi">\(\pi\)</button>
+                <button class="btn-white" id="pi">π</button>
                 <button class="btn-black enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
             </div>
             <div class="keypad-basic func" id="keypad-func" style="display: none;">
-                <button class="btn-white" id="sin">\(\sin\)</button>
-                <button class="btn-white" id="cos">\(\cos\)</button>
-                <button class="btn-white" id="tan">\(\tan\)</button>
+                <button class="btn-white funct" id="sin">sin</button>
+                <button class="btn-white funct" id="cos">cos</button>
+                <button class="btn-white funct" id="tan">tan</button>
                 <div class="gap"></div>
-                <button class="btn-white" id="pwn">\(a^n\)</button>
-                <button class="btn-white" id="sqrtn">\(\sqrt{}\)</button>
-                <button class="btn-white" id="sqrt">\(\sqrt[n]{}\)</button>
-                <button class="btn-white" id="asin">\(\sin^{-1}\)</button>
-                <button class="btn-white" id="acos">\(\cos^{-1}\)</button>
-                <button class="btn-white" id="atan">\(\tan^{-1}\)</button>
+                <button class="btn-white" id="pwn">a<sup>n</sup></button>
+                <button class="btn-white" id="sqrtn">√</button>
+                <button class="btn-white" id="sqrt"><sup>n</sup>√</button>
+                <button class="btn-white funct" id="invsin">sin<sup>-1</sup></button>
+                <button class="btn-white funct" id="invcos">cos<sup>-1</sup></button>
+                <button class="btn-white funct" id="invtan">tan<sup>-1</sup></button>
                 <div class="gap"></div>
-                <button class="btn-white" id="exp">\(e^x\)</button>
-                <button class="btn-white" id="10^x">\(abs\)</button>
-                <button class="btn-white" id="2^x">\(round\)</button>
-                <button class="btn-white" id="pwn">\(mean\)</button>
-                <button class="btn-white" id="sqrtn">\(stdev\)</button>
-                <button class="btn-white" id="sqrt">\(stdevp\)</button>
+                <button class="btn-white" id="exp">e<sup>x</sup></button>
+                <button class="btn-white funct" id="10^x">abs</button>
+                <button class="btn-white funct" id="2^x">round</button>
+                <button class="btn-white funct" id="pwn">mean</button>
+                <button class="btn-white funct" id="sqrtn">stdev</button>
+                <button class="btn-white funct" id="sqrt">stdevp</button>
                 <div class="gap"></div>
-                <button class="btn-white" id="ln">\(ln\)</button>
-                <button class="btn-white" id="floor">\(log\)</button>
-                <button class="btn-black" id="del"><i class="fa-solid fa-delete-left"></i></button>
-                <button class="btn-white" id="npr">\( ^nP_r \)</button>
-                <button class="btn-white" id="ncr">\( ^nC_r \)</button>
+                <button class="btn-white" id="ln">ln</button>
+                <button class="btn-white" id="floor">log</button>
+                <button class="btn-black del" id="del"><i class="fa-solid fa-delete-left"></i></button>
+                <button class="btn-white" id="npr"><sup>n</sup>P<sub>r</sub></button>
+                <button class="btn-white" id="ncr"><sup>n</sup>C<sub>r</sub></button>
                 <button class="btn-white" id="!">!</button>
                 <div class="gap"></div>
-                <button class="btn-white" id="e">\(e\)</button>
-                <button class="btn-white" id="pi">\(\pi\)</button>
+                <button class="btn-white" id="e">e</button>
+                <button class="btn-white" id="pi">π</button>
                 <button class="enter" id="enter"><i class="fa-regular fa-arrow-turn-down-left"></i></button>
             </div>
     </div>
 
-
-    <script src="js/scripts.js"></script>
+    <script src="calculator.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
