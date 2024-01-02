@@ -66,3 +66,49 @@ up.addEventListener('click', function () {
     }})
 });
 
+let del = document.querySelectorAll('.del');
+del.forEach(key => {
+    key.addEventListener('click', function () {
+        currentQuery.value = currentQuery.value.slice(0, -1);
+    })
+});
+
+let numbers = document.querySelectorAll('.number');
+numbers.forEach(key => {
+    key.addEventListener('click', function () {
+        currentQuery.value += key.innerHTML;
+    })
+});
+
+let percentOf = document.getElementById('percentof');
+percentOf.addEventListener('click', function () {
+    currentQuery.value += '% of';
+});
+
+
+let funct = document.querySelectorAll('.funct');
+funct.forEach(key => {
+    key.addEventListener('click', function () {
+        currentQuery.value += key.innerHTML;
+    })
+});
+
+var qsns = document.querySelectorAll('.qsn');
+qsns.forEach(function(key) {
+   var keyField = MQ.MathField(key, {
+      handlers: {
+         edit: function() {
+            let enteredMath = keyField.latex();
+            checkAnswer(enteredMath);
+         }
+      },
+      spaceBehavesLikeTab: true, // optional setting
+      supSubsRequireOperand: true, // optional setting
+      autoCommands: 'sqrt',
+      autoOperatorNames: 'sin cos tan', // Add other functions as needed
+   });
+});
+
+
+// let previousCalculations = [];
+// let currentCalculations = [];
