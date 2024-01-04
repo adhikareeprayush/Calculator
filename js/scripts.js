@@ -15,12 +15,26 @@ function toggleOption(option) {
     }
 }
 
-let main = document.getElementById('main');
-let abc = document.getElementById('abc');
-let func = document.getElementById('func');
-let keypadBasic = document.getElementById('keypad-basic');
-let keypadabc = document.getElementById('keypad-abc');
-let keypadfunc = document.getElementById('keypad-func');
+const main = document.getElementById('main');
+const abc = document.getElementById('abc');
+const func = document.getElementById('func');
+const keypadBasic = document.getElementById('keypad-basic');
+const keypadabc = document.getElementById('keypad-abc');
+const keypadfunc = document.getElementById('keypad-func');
+
+// Add event listeners using the toggleKeypad function
+main.addEventListener('click', function () {
+    toggleKeypad('keypad-basic', 'main');
+});
+
+abc.addEventListener('click', function () {
+    toggleKeypad('keypad-abc', 'abc');
+});
+
+func.addEventListener('click', function () {
+    toggleKeypad('keypad-func', 'func');
+});
+
 
 function toggleKeypad(keypadId, buttonId) {
     // Hide all keypads
@@ -40,75 +54,33 @@ function toggleKeypad(keypadId, buttonId) {
     document.getElementById(buttonId).classList.add('active');
 }
 
-// Add event listeners using the toggleKeypad function
-main.addEventListener('click', function () {
-    toggleKeypad('keypad-basic', 'main');
+
+
+let previousCalculations = document.querySelectorAll('.prevCalcs');
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var mathField = document.getElementById('qsn1');
+    var latex = document.getElementById('ans1');
+    var MQ = MathQuill.getInterface(2);
+    var mathFieldInstance = MQ.MathField(mathField, {
+        spaceBehavesLikeTab: true,
+        handlers: {
+            edit: function () {
+                var latexString = mathFieldInstance.latex();
+                try {
+                    // var variables=;
+                    console.log(latexString);                    
+                    var fn = evaluatex(latexString);
+                    console.log(fn);
+                    result = fn();
+                    latex.innerHTML = Math.round(result * 100) / 100;
+                    
+                } catch (error) {
+                    console.error('Error evaluating expression:', error);
+                }
+            }
+        }
+    });
 });
 
-abc.addEventListener('click', function () {
-    toggleKeypad('keypad-abc', 'abc');
-});
-
-func.addEventListener('click', function () {
-    toggleKeypad('keypad-func', 'func');
-});
-
-
-//Code to change the case of the letters
-let keys = document.querySelectorAll('.letter')
-let up = document.getElementById('up');
-up.addEventListener('click', function () {
-    keys.forEach(key => {
-        if(key.innerHTML == key.innerHTML.toUpperCase()){
-            key.innerHTML = key.innerHTML.toLowerCase();
-    }else{
-        key.innerHTML = key.innerHTML.toUpperCase();
-    }})
-});
-
-let del = document.querySelectorAll('.del');
-del.forEach(key => {
-    key.addEventListener('click', function () {
-        currentQuery.value = currentQuery.value.slice(0, -1);
-    })
-});
-
-let numbers = document.querySelectorAll('.number');
-numbers.forEach(key => {
-    key.addEventListener('click', function () {
-        currentQuery.value += key.innerHTML;
-    })
-});
-
-let percentOf = document.getElementById('percentof');
-percentOf.addEventListener('click', function () {
-    currentQuery.value += '% of';
-});
-
-
-let funct = document.querySelectorAll('.funct');
-funct.forEach(key => {
-    key.addEventListener('click', function () {
-        currentQuery.value += key.innerHTML;
-    })
-});
-
-var qsns = document.querySelectorAll('.qsn');
-qsns.forEach(function(key) {
-   var keyField = MQ.MathField(key, {
-      handlers: {
-         edit: function() {
-            let enteredMath = keyField.latex();
-            checkAnswer(enteredMath);
-         }
-      },
-      spaceBehavesLikeTab: true, // optional setting
-      supSubsRequireOperand: true, // optional setting
-      autoCommands: 'sqrt',
-      autoOperatorNames: 'sin cos tan', // Add other functions as needed
-   });
-});
-
-
-// let previousCalculations = [];
-// let currentCalculations = [];
