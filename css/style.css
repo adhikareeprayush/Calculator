@@ -51,33 +51,42 @@ html,body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
     font-size: 20px;
     font-weight: 500;
     border-top:1px solid #bebebe;
+    position: relative !important;
 }
 
 .qsn{
     width:70%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     outline: none;
     font-size: 20px;
     font-weight: 500;
+    padding-left: 10px;
+    border: none !important;
+}
+
+.qsn:focus-within{
+    outline: none !important;
+    border:none !important;
 }
 
 .ans{
     width:30%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     outline: none;
+    padding-right: 20px;
     font-size: 20px;
     font-weight: 500;
+    z-index: 5;
 }
-
-
 
 .keypadControls{
     display: flex;
@@ -147,7 +156,6 @@ html,body{
      left: 50%;
  }
 
- 
 .mode{
     width: auto;
     font-size: 15px;
@@ -157,8 +165,13 @@ html,body{
     justify-content: center;
     align-items: center;
     position: relative;
-
     cursor: default;
+}
+
+.mq-root-block{
+    height: 100%;
+    align-items: center !important;
+    display: flex !important;
 }
 
 .mode::after{
@@ -282,6 +295,13 @@ html,body{
     opacity:0.5;
     pointer-events: none;
 }
+
+/* .mq-root-block{
+    height: 100%;
+    display: flex;
+    align-items: center;
+} */
+
 
 
 @media (max-width:600px)
