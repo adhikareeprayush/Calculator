@@ -11,25 +11,26 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-     <!-- MathQuill styles and scripts -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-     <link rel="stylesheet" href="mathquill-0.10.1/mathquill.css">
-     <script src="mathquill-0.10.1/mathquill.js"></script>
-
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.1/math.js" integrity="sha512-ekTDuSaAE9sFxbDUSIgOT0OK+iInxoziYIA03oVHFWC7edmuSwngpR/FTu7ome+sfcZgFePphvGDkRTav62lMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="mathquill-0.10.1/mathquill.css">
+    <script src=https://cdn.jsdelivr.net/npm/tex-math-parser></script>
+    <script src="https://cdn.jsdelivr.net/npm/evaluatex@2.2.0/dist/evaluatex.min.js"></script>   
+    <script src="mathquill-0.10.1/mathquill.js"></script>
 </head>
 <body>
     
 
     <div class="calculator" id="calculator">
         <div class="previous">
-            <div class="prevCalcs">
-                <div class="qsn" contenteditable="true">Hello</div>
-                <div class="ans" contenteditable="false">Hi</div>
+            <div class="prevCalcs" id="prev1">
+                <div class="qsn" id="qsn1" contenteditable="true">Hello</div>
+                <div class="ans" id="ans1" contenteditable="false">123</div>
             </div>
             <div class="current prevCalcs">
                 <div class="qsn" contenteditable="true">Hello</div>
@@ -171,7 +172,8 @@
             </div>
     </div>
 
-    <script src="js/calculator.js"></script>
+    <script src="calculator.js"></script> 
     <script src="js/scripts.js"></script>
+
 </body>
 </html>
