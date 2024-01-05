@@ -12,7 +12,7 @@ font-style: normal;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Symbola','Times New Roman',serif;
+    font-family:'Symbola','Times New Roman',serif !important;
 }
 
 html,body{
@@ -50,18 +50,21 @@ html,body{
     min-height: 60px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center !important;
     font-size: 20px;
     font-weight: 500;
     border-top:1px solid #bebebe;
     position: relative !important;
 }
 
+.prevCalcs:focus-within{
+    border:2px solid #3187ea;
+}
+
 .qsn{
     width:70%;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
     justify-content: flex-start;
     outline: none;
     font-size: 20px;
@@ -70,14 +73,8 @@ html,body{
     border: none !important;
 }
 
-.qsn:focus-within{
-    outline: none !important;
-    border:none !important;
-}
-
 .ans{
     width:30%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -168,10 +165,8 @@ html,body{
     cursor: default;
 }
 
-.mq-root-block{
-    height: 100%;
-    align-items: center !important;
-    display: flex !important;
+.mq-focused{
+    box-shadow: none !important;
 }
 
 .mode::after{
