@@ -54,33 +54,44 @@ function toggleKeypad(keypadId, buttonId) {
     document.getElementById(buttonId).classList.add('active');
 }
 
+var prevCalculations = document.querySelectorAll('.prevCalcs');
+//run this function for all time the page is loaded
+prevCalculations.forEach(element => {
+    //select the qsn and ans div of the current element
+    var qsn = element.querySelector('.qsn');
+    var ans = element.querySelector('.ans');
 
-
-let previousCalculations = document.querySelectorAll('.prevCalcs');
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var mathField = document.getElementById('qsn1');
-    var latex = document.getElementById('ans1');
-    var MQ = MathQuill.getInterface(2);
-    var mathFieldInstance = MQ.MathField(mathField, {
-        spaceBehavesLikeTab: true,
-        handlers: {
-            edit: function () {
-                var latexString = mathFieldInstance.latex();
-                try {
-                    // var variables=;
-                    console.log(latexString);                    
-                    var fn = evaluatex(latexString);
-                    console.log(fn);
-                    result = fn();
-                    latex.innerHTML = Math.round(result * 100) / 100;
-                    
-                } catch (error) {
-                    console.error('Error evaluating expression:', error);
-                }
-            }
+    //if any span of qsn contains class mq-empty then remove it
+    var spans = qsn.querySelectorAll('span');
+    spans.forEach(span => {
+        if (span.classList.contains('mq-empty')) {
+            element.remove();
         }
     });
+    set_active(qsn, ans);
 });
+
+function set_active(mathField, latex) {
+    var MQ = MathQuill.getInterface(2);
+    var mathFieldInstance = MQ.MathField(mathField, {
+    spaceBehavesLikeTab: true,
+    handlers: {
+        edit: function () {
+            var latexString = mathFieldInstance.latex();
+            try {
+                // var variables=;
+                console.log(latexString);                    
+                var fn = evaluatex(latexString);
+                console.log(fn);
+                result = fn();
+                latex.innerHTML = Math.round(result * 100) / 100;
+                
+            } catch (error) {
+                console.error('Error evaluating expression:', error);
+            }
+        }
+    }
+});
+}
+
 
