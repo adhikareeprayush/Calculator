@@ -5,6 +5,7 @@ function deg_to_rad() {
     rad = deg * Math.PI / 180;
 }
 
+
 //function to calculate the power
 function power(x, y) {
     return Math.pow(x, y);
